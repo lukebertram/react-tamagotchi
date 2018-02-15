@@ -3,14 +3,16 @@ import React from 'react';
 const header = {
   display: 'flex',
   justifyContent: 'center',
+  alignItems: 'center',
   fontFamily: 'Carrois Gothic SC, sans-serif',
-  padding: '5%'
+  height: 80,
+  backgroundColor: '#aaa'
 };
 
 function Header(){
   return(
     <div style={header}>
-      <h1>Gothic Tommy</h1>
+      <h1>Virtual Responsibility</h1>
     </div>
   );
 }

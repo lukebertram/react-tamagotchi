@@ -1,8 +1,29 @@
 import React from 'react';
+import ControlButton from './ControlButton';
+import PropTypes from 'prop-types';
+import { v4 } from 'uuid';
 
-function Change() {
+function Change(props) {
+  const buttonTypes = ['feed', 'play', 'sleep'];
+
   return(
-    <div>Change Component</div>
+    <div className='container'>
+      {buttonTypes.map((label) =>
+        <ControlButton
+          buttonLabel={label}
+          key={v4()} />
+      )}
+      <style jsx>{`
+        .container {
+          min-height: 100px;
+          width: 100%;
+          background-color: peachpuff;
+          display: flex;
+          justify-content: space-around;
+          padding: 0 50px;
+        }
+      `}</style>
+    </div>
   );
 }
 
