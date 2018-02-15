@@ -1,34 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import HeartMeter from './HeartMeter';
 
 function PetStats(props) {
+
   return (
     <div className='container'>
       <div className='pet-stat'>
         <h4>Health</h4>
-        <div className='hearts'>
-
-        </div>
+        <HeartMeter
+          statValue={props.currentHealth}/>
       </div>
 
       <div className='pet-stat'>
         <h4>Hunger</h4>
-        <div className='hearts'>
-
-        </div>
+        <HeartMeter
+          statValue={props.foodLevel} />
       </div>
 
       <div className='pet-stat'>
         <h4>Mood</h4>
-        <div className='hearts'>
-
-        </div>
+        <HeartMeter
+          statValue={props.moodLevel}/>
       </div>
 
       <div className='pet-stat'>
         <h4>Tired</h4>
-        <div className='hearts'>
-          hearts
-        </div>
+        <HeartMeter
+          statValue={props.restLevel}/>
       </div>
 
       <style jsx>{`
@@ -52,9 +51,22 @@ function PetStats(props) {
           justify-content: space-between;
           align-items: center;
         }
+
+        .hearts {
+          height: 100%;
+          width: 200px;
+          background-color: #fff;
+        }
       `}</style>
     </div>
   );
 }
+
+PetStats.propTypes = {
+  currentHealth: PropTypes.number.isRequired,
+  foodLevel: PropTypes.number.isRequired,
+  moodLevel: PropTypes.number.isRequired,
+  restLevel: PropTypes.number.isRequired,
+};
 
 export default PetStats;

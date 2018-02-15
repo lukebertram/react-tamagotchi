@@ -7,11 +7,11 @@ class Game extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      masterGameArray: {
+      masterGameStats: {
         name: "Gerty",
-        foodLevel: 10,
-        moodLevel: 10,
-        restLevel: 10,
+        foodLevel: 7,
+        moodLevel: 5,
+        restLevel: 2,
         currentHealth: 10,
         maxHealth: 10,
         healthMod: 0
@@ -20,22 +20,22 @@ class Game extends React.Component {
     // this.handleNewData = this.handleNewData.bind(this);
   }
 
-  //game array [foodLevel/10, moodLevel/10, restLevel/10, hungerMod/0]
-  // game --> display --> PetStatus refers to gameArray levels
-  // game --> change --> buttons manipulate array
-  // game has conditional rendering: if foodLevel = 0, life = dead, if foodLevel > 0, life = alive
 
   // handleNewData(newData){
-  //   let masterGameArray = this.state.masterGameArray.slice();
+  //   let masterGameStats = this.state.masterGameStats.slice();
   //   newMasterGameArray.push(newData);
-  //   this.setState({masterGameArray: newMasterGameArray});
+  //   this.setState({masterGameStats: newMasterGameArray});
   // }
 
   render(){
     return(
       <div className="container">
-        <h1>{this.state.masterGameArray.name}</h1>
-        <Display />
+        <h1>{this.state.masterGameStats.name}</h1>
+        <Display
+          currentHealth={this.state.masterGameStats.currentHealth}
+          foodLevel={this.state.masterGameStats.foodLevel}
+          moodLevel={this.state.masterGameStats.moodLevel}
+          restLevel={this.state.masterGameStats.restLevel} />
         <Change />
         <style jsx>{`
           .container {

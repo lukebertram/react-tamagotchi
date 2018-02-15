@@ -1,11 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import PetStats from './PetStats';
 import PetImage from './PetImage';
 
-function Display() {
+function Display(props) {
   return(
     <div>
-      <PetStats />
+      <PetStats
+        currentHealth={props.currentHealth}
+        foodLevel={props.foodLevel}
+        moodLevel={props.moodLevel}
+        restLevel={props.restLevel} />
       <PetImage />
       <style jsx>{`
         div {
@@ -22,6 +27,13 @@ function Display() {
       `}</style>
     </div>
   );
+}
+
+Display.propTypes = {
+  currentHealth: PropTypes.number.isRequired,
+  foodLevel: PropTypes.number.isRequired,
+  moodLevel: PropTypes.number.isRequired,
+  restLevel: PropTypes.number.isRequired,
 }
 
 export default Display;
