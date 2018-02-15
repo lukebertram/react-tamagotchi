@@ -9,15 +9,23 @@ class Game extends React.Component {
     this.state = {
       masterGameStats: {
         name: "Gerty",
-        foodLevel: 7,
-        moodLevel: 5,
-        restLevel: 2,
-        currentHealth: 10,
+        foodLevel: 9,
+        moodLevel: 7,
+        restLevel: 6,
+        currentHealth: 6,
         maxHealth: 10,
         healthMod: 0
       }
     };
-    // this.handleNewData = this.handleNewData.bind(this);
+    this.handleControlButtonClick = this.handleControlButtonClick.bind(this);
+  }
+
+  componentDidMount() {
+  }
+
+  //control button click should pass the name of the stat to be increased
+  handleControlButtonClick(buttonLabel){
+    alert(`You pressed the ${buttonLabel} button.`);
   }
 
 
@@ -36,7 +44,8 @@ class Game extends React.Component {
           foodLevel={this.state.masterGameStats.foodLevel}
           moodLevel={this.state.masterGameStats.moodLevel}
           restLevel={this.state.masterGameStats.restLevel} />
-        <Change />
+        <Change
+          onControlButtonClick={this.handleControlButtonClick}/>
         <style jsx>{`
           .container {
             margin: 0 5vw;

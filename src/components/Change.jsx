@@ -10,6 +10,7 @@ function Change(props) {
     <div className='container'>
       {buttonTypes.map((label) =>
         <ControlButton
+          onControlButtonClick={props.onControlButtonClick}
           buttonLabel={label}
           key={v4()} />
       )}
@@ -25,6 +26,10 @@ function Change(props) {
       `}</style>
     </div>
   );
+}
+
+Change.propTypes = {
+  onControlButtonClick: PropTypes.func.isRequired
 }
 
 export default Change;

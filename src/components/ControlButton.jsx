@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function ControlButton(props) {
+
   return(
-    <button>
+    <button onClick={()=> {props.onControlButtonClick(props.buttonLabel);}}>
       {props.buttonLabel}
       <style jsx>{`
         button {
@@ -32,7 +33,8 @@ function ControlButton(props) {
 }
 
 ControlButton.propTypes = {
-  buttonLabel: PropTypes.string
+  buttonLabel: PropTypes.string,
+  onControlButtonClick: PropTypes.func.isRequired
 }
 
 export default ControlButton;
