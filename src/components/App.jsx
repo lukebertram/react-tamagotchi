@@ -1,20 +1,18 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Error404 from './Error404';
+import Game from './Game';
+import Header from './Header';
 
 function App(){
   return (
-    <Switch>
-      <Route exact path='/' component={Default} />
-      <Route component={Error404} />
-    </Switch>
-  );
-}
-
-//delete the following component definition before use
-function Default(){
-  return(
-    <h1>Default Component/App/Router Works!</h1>
+    <div>
+      <Header/>
+      <Switch>
+        <Route exact path='/' component={Game} />
+        <Route component={Error404} />
+      </Switch>
+    </div>
   );
 }
 
